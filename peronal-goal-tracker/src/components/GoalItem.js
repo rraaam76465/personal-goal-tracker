@@ -1,10 +1,17 @@
 import React from 'react';
+import { ListItem, ListItemText, Divider } from '@mui/material';
 
 const GoalItem = ({ goal }) => {
   return (
-    <li>
-      <span>{goal.goal}</span> - <span>{goal.deadline}</span>
-    </li>
+    <>
+      <ListItem>
+        <ListItemText
+          primary={goal.goal}
+          secondary={`Deadline: ${goal.deadline}`}
+        />
+      </ListItem>
+      <Divider />
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextField, Button, Container, Box } from '@mui/material';
 
 const GoalForm = ({ addGoal }) => {
   const [goal, setGoal] = useState('');
@@ -14,27 +15,36 @@ const GoalForm = ({ addGoal }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="goal">Goal:</label>
-        <input
-          type="text"
-          id="goal"
+    <Container>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2, mb: 2 }}>
+        <TextField
+          label="Goal"
+          variant="outlined"
+          fullWidth
+          margin="normal"
           value={goal}
           onChange={(e) => setGoal(e.target.value)}
         />
-      </div>
-      <div>
-        <label htmlFor="deadline">Deadline:</label>
-        <input
+        <TextField
+          label="Deadline"
           type="date"
-          id="deadline"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{ shrink: true }}
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
         />
-      </div>
-      <button type="submit">Add Goal</button>
-    </form>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={{ mt: 2 }}
+        >
+          Add Goal
+        </Button>
+      </Box>
+    </Container>
   );
 };
 

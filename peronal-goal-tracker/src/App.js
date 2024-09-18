@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import GoalForm from './components/GoalForm';
 import GoalList from './components/GoalList';
+import { Container, Typography, Paper } from '@mui/material';
 import './App.css';
-
 
 const App = () => {
   const [goals, setGoals] = useState([]);
@@ -12,11 +12,15 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <h1>Personal Goal Tracker</h1>
-      <GoalForm addGoal={addGoal} />
-      <GoalList goals={goals} />
-    </div>
+    <Container>
+      <Paper sx={{ padding: 3, textAlign: 'center', marginTop: 2 }}>
+        <Typography variant="h3" gutterBottom>
+          Personal Goal Tracker
+        </Typography>
+        <GoalForm addGoal={addGoal} />
+        <GoalList goals={goals} />
+      </Paper>
+    </Container>
   );
 };
 
